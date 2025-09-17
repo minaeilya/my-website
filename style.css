@@ -1,0 +1,671 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+
+}
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ z-index: -1 ;
+  background-color: #FE7743;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #EFEEEA;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;   /* هذه الخاصية تُثبّت العنصر */
+    top: 0;            /* تُثبّت العنصر في أعلى الصفحة */
+    left: 0;           /* تُثبّت العنصر في يسار الصفحة */
+    width: 100%;       /* تجعل الشريط يمتد على كامل عرض الشاشة */
+    z-index: 1000;     /* تضمن أن الشريط يظهر فوق باقي العناصر */
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 2px 22px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover,
+.nav-links ul li a.active {
+    color: #FF4C4C;
+}
+
+.nav-links ul li .active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #7a7ee0;
+    margin-top: 0.5rem;
+    border-radius: 2px;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 3px 20px;
+}
+
+.navbar .logo img {
+    height: 25px;
+    margin-right: 2px;
+}
+
+
+/* نمط زر القائمة (Menu Button) */
+.menu-toggle {
+    display: none; /* إخفاء الزر في الشاشات الكبيرة */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    z-index: 1001;
+}
+
+.menu-toggle img {
+    width: 100%; /* جعل الصورة تملأ حجم الزر */
+    height: 100%;
+    display: block; /* يضمن إزالة أي مسافات زائدة حول الصورة */
+}
+
+/* Media Query للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* إخفاء القائمة في البداية */
+        width: 25%;
+        height: 100vh;
+        background-color: #EFEEEA;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0; /* إظهار القائمة عند تفعيلها */
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 5rem;
+        gap: 2rem;
+    }
+
+    .menu-toggle {
+        display: block; /* إظهار الزر في الشاشات الصغيرة */
+    }
+}
+
+section {
+  padding: 100px 200px;
+}
+
+.main{
+   width: 100%;
+   min-height:100vh ;
+   display:flex;
+   align-items: center;
+   z-index : 1;
+   position: relative;
+   margin-top: 3rem;
+   background-color: transparent;
+  justify-content: space-between;
+}
+
+.main .profile{
+padding: 0 50px; 
+
+}
+
+.main h2{
+    color: #ffffff;
+    font-size:1.4em ;
+    font-weight: 500;
+
+}
+
+.main h2 span{
+   display: inline-block;
+   margin-top: 10px;
+    color: #273F4F;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.main h3 {
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 300;
+    letter-spacing: 1;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.main h3::after {
+    content: '|';
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { color: transparent; }
+    50% { color: #273F4F; }
+}
+
+
+.main-b{
+    color: #fff;
+    background-color: #273F4F;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition : 0.5s ease ;
+
+}
+
+.main-b:hover{
+ color: #273F4F;
+    background-color: #ffffff;
+transform: scale(1.1 ,1.1);
+
+}
+
+
+.social {
+    /* يجعل الأيقونات بجانب بعضها في صف أفقي */
+    display: flex;
+    /* يضيف مسافة بين الأيقونات */
+    gap: 15px; 
+    /* يضع الأيقونات في وسط العنصر الأب */
+    justify-content: left;
+    /* يضيف مسافة من الأعلى */
+    margin-top: 1px;
+   
+}
+
+
+.social a img {
+    width: 35px; 
+    height: 35px;
+    transition: transform 0.3s ease; 
+}
+.social a :hover{
+ 
+
+transform: scale(1.3 ,1.3);
+}
+.profile-pic {
+    width: 300px; /* يمكنك تعديل الحجم حسب رغبتك */
+    height: 300px; /* يجب أن تكون نفس قيمة العرض للحصول على دائرة مثالية */
+    border-radius: 50%; /* هذا هو المفتاح! يجعل الصورة دائرية */
+    border: 5px solid #273F4F; /* يضيف الإطار الأبيض حول الصورة */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2); /* يضيف ظلًا خفيفًا لإبراز الإطار */
+    object-fit: cover; /* يضمن أن الصورة لا تتشوه عند قصها */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+    /* يكبر الصورة بنسبة 10% عند مرور الماوس فوقها */
+    transform: scale(1.1);
+    border: 5px solid #ff682d;
+    /* يجعل الظل أكثر بروزًا */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.title{
+display: flex;
+justify-content: center;
+color: #FE7743;
+font-size: 2.2em;
+font-weight: 800;
+margin-bottom: 30px;
+}
+
+.conn{
+    display:flex ;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card{
+background-color: #ffffff;
+width: 21.25em;
+box-shadow: 0 5px 25px rgba(1 1 1 / 25%);
+border-radius: 10px;
+padding: 25px;
+margin: 15px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
+}
+
+.card:hover{
+ transform: scale(1.1);
+
+}
+
+.icon{
+color: #FE7743;
+font-size: 4em;
+text-align: center;
+}
+
+.info{
+    text-align: center;
+}
+
+.info h3{
+color: #FE7743;
+font-size:1.2em ;
+font-weight: 700;
+margin: 20px;
+
+}
+.cards{
+    background-color: #fff;
+}
+
+/* Section About */
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  background: #fff; /* الخلفية الأساسية بيضا */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  overflow: hidden;
+}
+
+/* الكور */
+.about-section .floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.about-section .floating-shapes span {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #173b53;
+  border-radius: 50%;
+  animation: float 20s infinite;
+  opacity: 0.15;
+}
+
+.about-section .floating-shapes span:nth-child(1) {
+  top: 10%;
+  left: 15%;
+  animation-duration: 18s;
+  width: 100px;
+  height: 100px;
+}
+
+.about-section .floating-shapes span:nth-child(2) {
+  top: 60%;
+  left: 25%;
+  animation-duration: 22s;
+}
+
+.about-section .floating-shapes span:nth-child(3) {
+  top: 30%;
+  left: 70%;
+  animation-duration: 19s;
+}
+
+.about-section .floating-shapes span:nth-child(4) {
+  top: 80%;
+  left: 80%;
+  animation-duration: 23s;
+  width: 120px;
+  height: 120px;
+}
+
+.about-section .floating-shapes span:nth-child(5) {
+  top: 50%;
+  left: 50%;
+  animation-duration: 20s;
+}
+
+/* حركة الكور */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-100px) translateX(50px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+
+.about-content {
+  position: relative;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 20px;
+  z-index: 1;
+  text-align: center;
+}
+
+.about-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FE7743;
+}
+
+.about-content h1 span {
+  color: #FE7743; /* لون كلمة About */
+}
+
+.about-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.about-content strong {
+  color: #FE7743; /* نفس اللون للكلام المتخن */
+}
+
+
+.pro{
+background-color: #000000;
+
+}
+
+.pro .conn{
+    margin-top: 30px;
+}
+
+.pro-card{
+    background-color: #fff;
+    border: 1px solid white ;
+    min-height: 14em;
+    width: 18em;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px;
+    transition: 0.7s ease;
+}
+.pro-card:hover .pro-img{
+     opacity: 0.8;
+}
+
+.pro-card:hover{
+     transform: scale(1.1);
+}
+  .pro-img img{
+    width: 100%;
+
+  }
+
+  .pro-info{
+    padding: 1em;
+    font-size: 12px;
+  }
+
+  .pro-category{
+    font-size: 0.8em;
+    color: #000;
+  }
+  .pro-title{
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-top: 3px;
+    font-size: 14px;
+    color: #000;
+  }
+
+  .details{
+    text-decoration: none ;
+    color: #FE7743;
+    font-size: 10px ;
+    margin: 4px;
+  }
+
+  .details:hover{
+color: #273F4F;
+  }
+
+  #particles-pro {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+.pro {
+  position: relative;
+  overflow: hidden;
+}
+.pro .conn,
+.pro .title {
+  position: relative;
+  z-index: 1; /* عشان يبان فوق البارتيكلز */
+}
+
+.card-contact{
+    background-color: #fff;
+}
+
+.card-contact .main-b{
+    background-color: #FE7743;
+}
+
+.card-contact .main-b:hover{
+    color: #FE7743;
+    background-color: #fff;
+}
+.card-contact .card{
+width: 19em;
+}
+
+.foo{
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2em;
+    align-items: center; 
+    
+}
+
+.fo-title{
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.fo-title span{
+    color: #FE7743;
+    font-weight: 800;
+}
+.foo .social a{
+color: #fff;
+font-size: 1.5em;
+
+}
+
+
+@media (max-width: 1023px) {
+    /* General adjustments for smaller screens */
+    section {
+        padding: 80px 50px; /* Reduce padding for sections */
+    }
+
+    .main {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center; /* Center align text */
+        justify-content: center;
+        padding-top: 100px; /* Add padding to prevent content from hiding behind the navbar */
+    }
+
+    .main .profile {
+        padding: 0;
+        margin-bottom: 2rem;
+        margin-top: 2em;
+    }
+
+    .social {
+        justify-content: center; /* Center social icons on mobile */
+    }
+
+    .profile-pic {
+        width: 250px;
+        height: 250px;
+    }
+
+    .pro-card {
+        width: 20em; /* Adjust card width for tablets */
+    }
+
+    .about-content {
+        padding: 30px;
+        backdrop-filter: blur(8px); /* slightly less blur */
+    }
+
+    .about-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+    }
+
+    .foo {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+/* Mobile Screens (up to 768px) */
+@media (max-width: 768px) {
+    /* Navbar specific changes for mobile */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hide the menu initially */
+        width: 70%; /* Make the menu wider on small screens */
+        height: 100vh;
+        background-color: #EFEEEA;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0; /* Show the menu when active */
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 5rem;
+        gap: 2rem;
+    }
+
+    .menu-toggle {
+        display: block; /* Show the menu button on mobile */
+    }
+
+    /* General changes for very small screens */
+    section {
+        padding: 60px 20px; /* Further reduce padding */
+    }
+    
+    .main h2 span {
+        font-size: 2.5em; /* Smaller font for the name */
+    }
+    
+    .main h3 {
+        font-size: 0.9em; /* Smaller font for the subtitle */
+    }
+
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+    }
+
+    .card, .pro-card {
+        width: 100%; /* Make cards full-width for stacking */
+        margin: 10px 0;
+    }
+
+    .about-content {
+        padding: 20px;
+    }
+
+    .about-content h1 {
+        font-size: 2rem;
+    }
+
+    .about-content p {
+        font-size: 0.9rem;
+    }
+    
+    .foo {
+        padding: 1em;
+    }
+    
+    .fo-title {
+        font-size: 1em;
+    }
+} 
