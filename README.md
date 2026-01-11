@@ -35,7 +35,7 @@ A professional, responsive personal portfolio website showcasing skills as a **F
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/minaeilya/my-website.git
+    https://github.com/minaeilya/my-website.git
     ```
 2.  **Open the project:**
     Navigate to the project folder and open `index.html` (or `home.html`) in your preferred browser.
