@@ -1,3 +1,20 @@
+function openSmartEmail(event) {
+
+    event.preventDefault(); 
+    
+    const email = "minaeilya03@gmail.com";
+    const subject = "Inquiry from Portfolio";
+    
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+    } else {
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}`, '_blank');
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     //
     // الجزء الخاص بالقائمة المنسدلة (Navbar)
