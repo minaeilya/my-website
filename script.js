@@ -1,15 +1,15 @@
-function openSmartEmail(event) {
-
-    event.preventDefault(); 
-    
+function openSmartEmail() {
     const email = "minaeilya03@gmail.com";
     const subject = "Inquiry from Portfolio";
     
+    // فحص ذكي لنوع الجهاز (هاتف أم كمبيوتر)
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
     if (isMobile) {
+        // إذا كان هاتف: يفتح تطبيق الإيميل الافتراضي فوراً
         window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
     } else {
+        // إذا كان كمبيوتر: يفتح رابط ويب جيميل في صفحة جديدة
         window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}`, '_blank');
     }
 }
